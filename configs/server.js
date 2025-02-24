@@ -5,6 +5,8 @@ import cors from "cors"
 import helmet from 'helmet'
 import morgan from 'morgan'
 import { dbConnection } from './mongo.js'
+import authRoutes from '../src/auth/auth.routes.js'
+import {initializeAdminUser } from "../src/user/user.controller.js"
  
 
 const middlewares = (app) =>{
@@ -17,7 +19,7 @@ const middlewares = (app) =>{
 
 
 const routes = (app) => {
- 
+    app.use("/corporex/v1/auth", authRoutes)
 
 }
 
@@ -25,6 +27,7 @@ const routes = (app) => {
 const connectarDB = async () => {
     try{
         await dbConnection()
+        await initializeAdminUser()
     }catch(err){
         console.log(`❌ Database connection failed: ${err}`)
     }
