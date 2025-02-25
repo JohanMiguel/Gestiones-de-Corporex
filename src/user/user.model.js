@@ -37,6 +37,10 @@ const userSchema = Schema({
         enum: ["ADMIN_ROLE"],
         default: "USER_ROLE"
     },
+    status:{
+        type: Boolean,
+        default: true
+    },
 },
 {
     versionKey: false,

@@ -7,7 +7,7 @@ import morgan from 'morgan'
 import { dbConnection } from './mongo.js'
 import authRoutes from '../src/auth/auth.routes.js'
 import {initializeAdminUser } from "../src/user/user.controller.js"
- 
+import companyRoutes from "../src/company/company.routes.js"
 
 const middlewares = (app) =>{
     app.use(express.urlencoded({extended: false}))
@@ -20,6 +20,7 @@ const middlewares = (app) =>{
 
 const routes = (app) => {
     app.use("/corporex/v1/auth", authRoutes)
+    app.use("/corporex/v1/companies", companyRoutes)
 
 }
 
