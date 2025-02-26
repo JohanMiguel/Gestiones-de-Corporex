@@ -4,7 +4,7 @@ import path from "path";
 
 export const createCompany = async (req, res) => {
     try {
-        const { name, impactLevel, trayectory, category, description } = req.body;
+        const { name, impactLevel, fundation, category, description } = req.body;
 
         const existingCompany = await Company.findOne({ name: name.toLowerCase() });
         if (existingCompany) {
@@ -17,7 +17,7 @@ export const createCompany = async (req, res) => {
         const company = new Company({
             name: name.toLowerCase(),
             impactLevel,
-            trayectory,
+            fundation,
             category,
             description,
         });
@@ -92,12 +92,15 @@ export const getCompanyByCategory = async (req, res) => {
 export const getCompaniesByTrayectory = async (req, res) => {
     try {
         const { years, condition } = req.params;
+        const currentYear = new Date().getFullYear(); 
+
+       
         const filter = condition === "menores"
-            ? { trayectory: { $lt: parseInt(years) } }  
-            : { trayectory: { $gt: parseInt(years) } }; 
+            ? { fundation: { $gt: currentYear - parseInt(years) } } 
+            : { fundation: { $lte: currentYear - parseInt(years) } }; 
 
         const companies = await Company.find(filter);
-        
+
         if (companies.length === 0) {
             return res.status(404).json({
                 success: false,
@@ -105,7 +108,10 @@ export const getCompaniesByTrayectory = async (req, res) => {
             });
         }
 
-        const cleanData = companies.map(company => company.toObject());
+        const cleanData = companies.map(company => ({
+            ...company.toObject(),
+            trayectory: currentYear - company.añoDeFundacion
+        }));
 
         const filename = `empresas_trayectoria_${condition}_${years}.xlsx`;
         const filePath = saveExcel(cleanData, filename);
@@ -113,7 +119,7 @@ export const getCompaniesByTrayectory = async (req, res) => {
         res.status(200).json({
             success: true,
             message: `Datos exportados a ${filename}`,
-            companies,
+            companies: cleanData,
             downloadUrl: `/exports/${filename}`
         });
 

@@ -13,10 +13,9 @@ const companySchema = new Schema({
             required: [true, "Impact level is required"],
             enum: ["Low", "Medium", "High"]
         },
-        trayectory: {
-            type: Number,
-            required: [true, "Trayectory is required"],
-            trim: true
+        fundation: {
+            type: Number, 
+            required: [true, "Año de fundación is required"]
         },
         category: {
             type: String,

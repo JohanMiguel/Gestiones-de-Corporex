@@ -56,7 +56,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkM2M3ODgzODQxNmY3NzEzZmY4NTUiLCJpYXQiOjE3NDA1NTIzMzgsImV4cCI6MTc0MDU1NTkzOH0.FbEePdITfBLjfAJjYF4tmqgeps5jmO__6tm6qoj0WCw",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkM2M3ODgzODQxNmY3NzEzZmY4NTUiLCJpYXQiOjE3NDA1ODQ2OTAsImV4cCI6MTc0MDU4ODI5MH0.kEUIoUHfSoHBHNJORgmYLBnHUnsymCCJ_HaJI0LpLeQ",
 									"type": "string"
 								}
 							]
@@ -65,7 +65,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Ameriun\",\r\n    \"impactLevel\": \"Medium\",\r\n    \"trayectory\": 65,\r\n    \"category\": \"Software\",\r\n    \"description\": \"Empresa de comida con direfentes tipos de Software.\"\r\n}\r\n",
+							"raw": "{\r\n        \"name\": \"AgroPlus\",\r\n        \"impactLevel\": \"Low\",\r\n        \"fundation\": \"2008\",\r\n        \"category\": \"Agriculture\",\r\n        \"description\": \"Empresa de innovación agrícola con productos para cultivos sostenibles.\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -135,7 +135,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/trayectory/menoresde/25",
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/trayectory/menoresde/17",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -150,7 +150,7 @@
 								"companies",
 								"trayectory",
 								"menoresde",
-								"25"
+								"17"
 							]
 						}
 					},
@@ -166,16 +166,10 @@
 						"header": [],
 						"body": {
 							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "use",
-									"value": "",
-									"type": "text"
-								}
-							]
+							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/trayectory/mayoresA/50",
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/trayectory/mayoresA/18",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -190,7 +184,7 @@
 								"companies",
 								"trayectory",
 								"mayoresA",
-								"50"
+								"18"
 							]
 						}
 					},
@@ -202,7 +196,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/category/Software",
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/category/Food",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -216,7 +210,7 @@
 								"v1",
 								"companies",
 								"category",
-								"Software"
+								"Food"
 							]
 						}
 					},
@@ -228,7 +222,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/filtro/za",
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/filtro/az",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -242,7 +236,7 @@
 								"v1",
 								"companies",
 								"filtro",
-								"za"
+								"az"
 							]
 						}
 					},
@@ -256,7 +250,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkM2M3ODgzODQxNmY3NzEzZmY4NTUiLCJpYXQiOjE3NDA0NTg5OTQsImV4cCI6MTc0MDQ2MjU5NH0.904hDZuLIBhU_b7CWzCZeFkFOIBpL6g2lznm-3L-7Qs",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkM2M3ODgzODQxNmY3NzEzZmY4NTUiLCJpYXQiOjE3NDA1ODQ2OTAsImV4cCI6MTc0MDU4ODI5MH0.kEUIoUHfSoHBHNJORgmYLBnHUnsymCCJ_HaJI0LpLeQ",
 									"type": "string"
 								}
 							]
@@ -265,7 +259,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Tech Solutions Updated\",\r\n    \"impactLevel\": \"Medio\",\r\n    \"foundationYear\": 2015,\r\n    \"category\": \"Software\",\r\n    \"description\": \"Empresa de software con enfoque en inteligencia artificial.\"\r\n}\r\n",
+							"raw": "{\r\n    \"name\": \"Pollo Grangero\",\r\n    \"impactLevel\": \"Medio\",\r\n    \"fundation\": \"2010\",\r\n    \"category\": \"Food\",\r\n    \"description\": \"Empresa de comida.\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -273,7 +267,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/editar/67bd3f41af7b645aa80e0f48",
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/editar/67bf38f0a9c0f101fb8c8295",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -287,7 +281,7 @@
 								"v1",
 								"companies",
 								"editar",
-								"67bd3f41af7b645aa80e0f48"
+								"67bf38f0a9c0f101fb8c8295"
 							]
 						}
 					},
