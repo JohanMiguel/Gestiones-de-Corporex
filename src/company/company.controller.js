@@ -42,10 +42,29 @@ export const createCompany = async (req, res) => {
 export const getAllCompanies = async (req, res) => {
     try {
         const companies = await Company.find();
+
+        if (companies.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No hay empresas registradas."
+            });
+        }
+
+        const cleanData = companies.map(company => ({
+            ...company.toObject(),
+            _id: company._id.toString()
+        }));
+
+        const filename = "todas_las_empresas.xlsx";
+        const filePath = saveExcel(cleanData, filename);
+
         res.status(200).json({
             success: true,
-            companies
+            message: `Datos exportados a ${filename}`,
+            companies: cleanData,
+            downloadUrl: `/exports/${filename}`
         });
+
     } catch (error) {
         res.status(500).json({
             success: false,
@@ -68,7 +87,11 @@ export const getCompanyByCategory = async (req, res) => {
             });
         }
 
-        const cleanData = companies.map(company => company.toObject());
+        
+        const cleanData = companies.map(company => ({
+            ...company.toObject(),
+            _id: company._id.toString()
+        }));
 
         const filename = `empresas_categoria_${categoryName.toLowerCase()}.xlsx`;
         const filePath = saveExcel(cleanData, filename);
@@ -108,9 +131,7 @@ export const getCompaniesByTrayectory = async (req, res) => {
             });
         }
 
-        const cleanData = companies.map(company => ({
-            ...company.toObject(),
-            trayectory: currentYear - company.añoDeFundacion
+        const cleanData = companies.map(company => ({...company.toObject(),_id: company._id.toString(),trayectory: currentYear - parseInt(company.fundation)
         }));
 
         const filename = `empresas_trayectoria_${condition}_${years}.xlsx`;
@@ -147,7 +168,10 @@ export const getAllCompaniesSorted = async (req, res) => {
             });
         }
 
-        const cleanData = companies.map(company => company.toObject());
+        const cleanData = companies.map(company => ({
+            ...company.toObject(),
+            _id: company._id.toString()
+        }));
 
         const filename = `empresas_orden_${order.toLowerCase()}.xlsx`;
         const filePath = saveExcel(cleanData, filename);
