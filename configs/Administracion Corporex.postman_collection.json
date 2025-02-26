@@ -44,6 +44,256 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Agregar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkM2M3ODgzODQxNmY3NzEzZmY4NTUiLCJpYXQiOjE3NDA1NTIzMzgsImV4cCI6MTc0MDU1NTkzOH0.FbEePdITfBLjfAJjYF4tmqgeps5jmO__6tm6qoj0WCw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ameriun\",\r\n    \"impactLevel\": \"Medium\",\r\n    \"trayectory\": 65,\r\n    \"category\": \"Software\",\r\n    \"description\": \"Empresa de comida con direfentes tipos de Software.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/addCategory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"corporex",
+								"v1",
+								"companies",
+								"addCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"corporex",
+								"v1",
+								"companies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menores A",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/trayectory/menoresde/25",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"corporex",
+								"v1",
+								"companies",
+								"trayectory",
+								"menoresde",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mayores A",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "use",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/trayectory/mayoresA/50",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"corporex",
+								"v1",
+								"companies",
+								"trayectory",
+								"mayoresA",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Por Ctaegoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/category/Software",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"corporex",
+								"v1",
+								"companies",
+								"category",
+								"Software"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "az, za",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/filtro/za",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"corporex",
+								"v1",
+								"companies",
+								"filtro",
+								"za"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkM2M3ODgzODQxNmY3NzEzZmY4NTUiLCJpYXQiOjE3NDA0NTg5OTQsImV4cCI6MTc0MDQ2MjU5NH0.904hDZuLIBhU_b7CWzCZeFkFOIBpL6g2lznm-3L-7Qs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tech Solutions Updated\",\r\n    \"impactLevel\": \"Medio\",\r\n    \"foundationYear\": 2015,\r\n    \"category\": \"Software\",\r\n    \"description\": \"Empresa de software con enfoque en inteligencia artificial.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/editar/67bd3f41af7b645aa80e0f48",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"corporex",
+								"v1",
+								"companies",
+								"editar",
+								"67bd3f41af7b645aa80e0f48"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
