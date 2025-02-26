@@ -39,7 +39,6 @@ export const createCompany = async (req, res) => {
     }
 };
 
-
 export const getAllCompanies = async (req, res) => {
     try {
         const companies = await Company.find();
@@ -56,6 +55,39 @@ export const getAllCompanies = async (req, res) => {
     }
 };
 
+export const getCompanyByCategory = async (req, res) => {
+    try {
+        const { categoryName } = req.params;
+
+        const companies = await Company.find({ category: { $regex: new RegExp(`^${categoryName}$`, "i") } });
+
+        if (companies.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No se encontraron empresas en esta categoría."
+            });
+        }
+
+        const cleanData = companies.map(company => company.toObject());
+
+        const filename = `empresas_categoria_${categoryName.toLowerCase()}.xlsx`;
+        const filePath = saveExcel(cleanData, filename);
+
+        res.status(200).json({
+            success: true,
+            message: `Datos exportados a ${filename}`,
+            companies,
+            downloadUrl: `/exports/${filename}`
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error al filtrar empresas por categoría",
+            error: error.message
+        });
+    }
+};
 
 export const getCompaniesByTrayectory = async (req, res) => {
     try {
@@ -94,20 +126,37 @@ export const getCompaniesByTrayectory = async (req, res) => {
     }
 };
 
-export const getCompaniesByCategory = async (req, res) => {
+export const getAllCompaniesSorted = async (req, res) => {
     try {
         const { order } = req.params;
+
         const sortOrder = order.toLowerCase() === "az" ? 1 : -1;
 
-        const companies = await Company.find().sort({ category: sortOrder });
+        const companies = await Company.find().sort({ name: sortOrder });
+
+        if (companies.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No se encontraron empresas."
+            });
+        }
+
+        const cleanData = companies.map(company => company.toObject());
+
+        const filename = `empresas_orden_${order.toLowerCase()}.xlsx`;
+        const filePath = saveExcel(cleanData, filename);
+
         res.status(200).json({
             success: true,
-            companies
+            message: `Datos exportados a ${filename}`,
+            companies,
+            downloadUrl: `/exports/${filename}`
         });
+
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Error al filtrar empresas por categoría",
+            message: "Error al listar empresas ordenadas",
             error: error.message
         });
     }
@@ -139,3 +188,4 @@ export const updateCompany = async (req, res) => {
         });
     }
 };
+
