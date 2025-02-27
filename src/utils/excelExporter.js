@@ -22,7 +22,7 @@ export const saveExcel = (data, filename) => {
         XLSX.utils.book_append_sheet(workbook, worksheet, "Empresas");
         XLSX.writeFile(workbook, filePath);
 
-        console.log(`✅ Archivo guardado en: ${filePath}`);
+        console.log("💾Arcivo Excel Guardado");
         return filePath;
     } catch (error) {
         console.error("❌ Error al guardar el archivo Excel:", error);

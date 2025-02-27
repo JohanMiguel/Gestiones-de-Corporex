@@ -10,7 +10,7 @@ export const createCompany = async (req, res) => {
         if (existingCompany) {
             return res.status(400).json({
                 success: false,
-                message: "La empresa ya está registrada"
+                message: "⚠️La empresa ya está registrada"
             });
         }
 
@@ -26,14 +26,14 @@ export const createCompany = async (req, res) => {
 
         res.status(201).json({
             success: true,
-            message: "Empresa creada exitosamente",
+            message: "✅Empresa creada exitosamente",
             company
         });
 
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Error al registrar la empresa",
+            message: "❌Error al registrar la empresa",
             error: error.message
         });
     }
@@ -46,95 +46,18 @@ export const getAllCompanies = async (req, res) => {
         if (companies.length === 0) {
             return res.status(404).json({
                 success: false,
-                message: "No hay empresas registradas."
+                message: "⚠️No hay empresas registradas."
             });
         }
 
-        const cleanData = companies.map(company => ({
-            ...company.toObject(),
-            _id: company._id.toString()
-        }));
-
-        const filename = "todas_las_empresas.xlsx";
-        const filePath = saveExcel(cleanData, filename);
-
-        res.status(200).json({
-            success: true,
-            message: `Datos exportados a ${filename}`,
-            companies: cleanData,
-            downloadUrl: `/exports/${filename}`
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Error al obtener las empresas",
-            error: error.message
-        });
-    }
-};
-
-export const getCompanyByCategory = async (req, res) => {
-    try {
-        const { categoryName } = req.params;
-
-        const companies = await Company.find({ category: { $regex: new RegExp(`^${categoryName}$`, "i") } });
-
-        if (companies.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: "No se encontraron empresas en esta categoría."
-            });
-        }
-
-        
-        const cleanData = companies.map(company => ({
-            ...company.toObject(),
-            _id: company._id.toString()
-        }));
-
-        const filename = `empresas_categoria_${categoryName.toLowerCase()}.xlsx`;
-        const filePath = saveExcel(cleanData, filename);
-
-        res.status(200).json({
-            success: true,
-            message: `Datos exportados a ${filename}`,
-            companies,
-            downloadUrl: `/exports/${filename}`
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Error al filtrar empresas por categoría",
-            error: error.message
-        });
-    }
-};
-
-export const getCompaniesByTrayectory = async (req, res) => {
-    try {
-        const { years, condition } = req.params;
         const currentYear = new Date().getFullYear(); 
-
-       
-        const filter = condition === "menores"
-            ? { fundation: { $gt: currentYear - parseInt(years) } } 
-            : { fundation: { $lte: currentYear - parseInt(years) } }; 
-
-        const companies = await Company.find(filter);
-
-        if (companies.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: "No se encontraron empresas con esa trayectoria."
-            });
-        }
-
-        const cleanData = companies.map(company => ({...company.toObject(),_id: company._id.toString(),trayectory: currentYear - parseInt(company.fundation)
+        const cleanData = companies.map(company => ({
+            ...company.toObject(),
+            _id: company._id.toString(),
+            trayectory: currentYear - company.fundation 
         }));
 
-        const filename = `empresas_trayectoria_${condition}_${years}.xlsx`;
+        const filename = "reporte_empresas.xlsx";
         const filePath = saveExcel(cleanData, filename);
 
         res.status(200).json({
@@ -147,50 +70,67 @@ export const getCompaniesByTrayectory = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Error al filtrar empresas por trayectoria",
+            message: "❌Error al obtener las empresas",
             error: error.message
         });
     }
 };
 
-export const getAllCompaniesSorted = async (req, res) => {
+export const getCompaniesFiltrer = async (req, res) => {
     try {
-        const { order } = req.params;
+        const { desde = 0, limite = 10, filtro, category, trayectory } = req.query;
+        const query = {};
+        const currentYear = new Date().getFullYear();
 
-        const sortOrder = order.toLowerCase() === "az" ? 1 : -1;
-
-        const companies = await Company.find().sort({ name: sortOrder });
-
-        if (companies.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: "No se encontraron empresas."
-            });
+        if (category) {
+            query.category = new RegExp(`^${category}$`, "i"); 
+            
         }
 
-        const cleanData = companies.map(company => ({
-            ...company.toObject(),
-            _id: company._id.toString()
+        if (trayectory) {
+            const foundationYear = currentYear - Number(trayectory);
+            query.fundation = foundationYear; 
+        }
+
+        let sortOptions = {};
+        switch (filtro) {
+            case "trayectoria":
+                sortOptions = { fundation: 1 };
+                break;
+            case "A-Z":
+                sortOptions = { name: 1 };
+                break;
+            case "Z-A":
+                sortOptions = { name: -1 };
+                break;
+            default:
+                sortOptions = {};
+        }
+
+        const total = await Company.countDocuments(query);
+        const companies = await Company.find(query).sort(sortOptions).skip(Number(desde)).limit(Number(limite)).lean();
+
+        const companiesWithExperience = companies.map(company => ({
+            ...company,
+            trayectory: currentYear - company.fundation
         }));
 
-        const filename = `empresas_orden_${order.toLowerCase()}.xlsx`;
-        const filePath = saveExcel(cleanData, filename);
-
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
-            message: `Datos exportados a ${filename}`,
-            companies,
-            downloadUrl: `/exports/${filename}`
+            total,
+            companies: companiesWithExperience
         });
 
-    } catch (error) {
-        res.status(500).json({
+    } catch (err) {
+        return res.status(500).json({
             success: false,
-            message: "Error al listar empresas ordenadas",
-            error: error.message
+            message: "❌Error al obtener las empresas",
+            error: err.message
         });
     }
 };
+
+
 export const updateCompany = async (req, res) => {
     try {
         const { companyId } = req.params;
@@ -200,22 +140,21 @@ export const updateCompany = async (req, res) => {
         if (!company) {
             return res.status(404).json({
                 success: false,
-                message: "Empresa no encontrada"
+                message: "❌Empresa no encontrada"
             });
         }
 
         res.status(200).json({
             success: true,
-            message: "Empresa actualizada exitosamente",
+            message: "❌Empresa actualizada exitosamente",
             company
         });
 
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Error al actualizar la empresa",
+            message: "❌Error al actualizar la empresa",
             error: error.message
         });
     }
 };
-

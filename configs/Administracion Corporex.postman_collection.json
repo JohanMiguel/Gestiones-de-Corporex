@@ -56,7 +56,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkM2M3ODgzODQxNmY3NzEzZmY4NTUiLCJpYXQiOjE3NDA1ODQ2OTAsImV4cCI6MTc0MDU4ODI5MH0.kEUIoUHfSoHBHNJORgmYLBnHUnsymCCJ_HaJI0LpLeQ",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkM2M3ODgzODQxNmY3NzEzZmY4NTUiLCJpYXQiOjE3NDA2MzMwMzQsImV4cCI6MTc0MDYzNjYzNH0.M2oJ5uLJYhubx2NsU0jC5P-LmGGJu0jdRZ-yqruDkdk",
 									"type": "string"
 								}
 							]
@@ -65,7 +65,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"name\": \"AgroPlus\",\r\n        \"impactLevel\": \"Low\",\r\n        \"fundation\": \"2008\",\r\n        \"category\": \"Agriculture\",\r\n        \"description\": \"Empresa de innovación agrícola con productos para cultivos sostenibles.\"\r\n    }",
+							"raw": "    {\r\n        \"name\": \"Zumba\",\r\n        \"impactLevel\": \"Low\",\r\n        \"fundation\": \"2008\",\r\n        \"category\": \"Dance\",\r\n        \"description\": \"Cursos de Baile\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -93,7 +93,7 @@
 					"response": []
 				},
 				{
-					"name": "Listar",
+					"name": "Listar-Reporte",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -130,34 +130,7 @@
 					"response": []
 				},
 				{
-					"name": "Menores A",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/trayectory/menoresde/17",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3000",
-							"path": [
-								"corporex",
-								"v1",
-								"companies",
-								"trayectory",
-								"menoresde",
-								"17"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Mayores A",
+					"name": "FILTROS",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -169,7 +142,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/trayectory/mayoresA/18",
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/filtros?trayectory=17",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -182,61 +155,28 @@
 								"corporex",
 								"v1",
 								"companies",
-								"trayectory",
-								"mayoresA",
-								"18"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Por Ctaegoria",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/category/Food",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"filtros"
 							],
-							"port": "3000",
-							"path": [
-								"corporex",
-								"v1",
-								"companies",
-								"category",
-								"Food"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "az, za",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/filtro/az",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3000",
-							"path": [
-								"corporex",
-								"v1",
-								"companies",
-								"filtro",
-								"az"
+							"query": [
+								{
+									"key": "trayectory",
+									"value": "17"
+								},
+								{
+									"key": "filtro",
+									"value": "A-Z",
+									"disabled": true
+								},
+								{
+									"key": "filtro",
+									"value": "Z-A",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Finance",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -259,7 +199,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Pollo Grangero\",\r\n    \"impactLevel\": \"Medio\",\r\n    \"fundation\": \"2010\",\r\n    \"category\": \"Food\",\r\n    \"description\": \"Empresa de comida.\"\r\n}\r\n",
+							"raw": "{\r\n    \"name\": \"Criptomonedas\",\r\n    \"impactLevel\": \"Medio\",\r\n    \"fundation\": \"2010\",\r\n    \"category\": \"Finance\",\r\n    \"description\": \"Empresa enfocada ala Cryptos.\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -267,7 +207,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/corporex/v1/companies/editar/67bf38f0a9c0f101fb8c8295",
+							"raw": "http://127.0.0.1:3000/corporex/v1/companies/editar/67bff43ea76cc346c10a2b63",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -281,7 +221,7 @@
 								"v1",
 								"companies",
 								"editar",
-								"67bf38f0a9c0f101fb8c8295"
+								"67bff43ea76cc346c10a2b63"
 							]
 						}
 					},
