@@ -1,8 +1,42 @@
-import { verify } from "argon2"
-import User from "../user/user.model.js"
+import { verify } from "argon2";
+import User from "../user/user.model.js";
 import { generateJWT } from "../helpers/generate-jwt.js";
 
-
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Logs in an admin user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Login successful
+ *       400:
+ *         description: Invalid credentials
+ *       500:
+ *         description: Server error
+ */
+/**
+ * Logs in an admin user.
+ * @async
+ * @function loginAdmin
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Promise<void>}
+ */
 export const loginAdmin = async (req, res) => {
     const { email, username, password } = req.body
     try{

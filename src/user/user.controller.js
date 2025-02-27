@@ -1,7 +1,18 @@
 import { hash } from "argon2";
 import User from "./user.model.js";
 
-
+/**
+ * @swagger
+ * /initializeAdmin:
+ *   post:
+ *     summary: Initializes the admin user if it does not already exist
+ *     tags: [User]
+ *     responses:
+ *       200:
+ *         description: Admin user initialized successfully
+ *       500:
+ *         description: Error initializing admin user
+ */
 export const initializeAdminUser = async () => {
     try {
         const adminExists = await User.findOne({ role: "ADMIN_ROLE" });

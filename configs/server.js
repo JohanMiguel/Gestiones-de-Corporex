@@ -8,20 +8,37 @@ import { dbConnection } from './mongo.js'
 import authRoutes from '../src/auth/auth.routes.js'
 import {initializeAdminUser } from "../src/user/user.controller.js"
 import companyRoutes from "../src/company/company.routes.js"
+import apiLimiter from "../src/middlewares/rate-limit-validator.js";
+import { swaggerDocs, swaggerUi } from "./swagger.js";
 
 const middlewares = (app) =>{
     app.use(express.urlencoded({extended: false}))
     app.use(express.json())
-    app.use(cors())
-    app.use(helmet())
+    app.use(cors({
+        origin: '*', 
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization']
+    }));
+    app.use(helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: ["'self'", "'unsafe-inline'", `http://localhost:${process.env.PORT}`],
+                connectSrc: ["'self'", `http://localhost:${process.env.PORT}`],
+                imgSrc: ["'self'", "data:"],
+                styleSrc: ["'self'", "'unsafe-inline'"],
+            },
+        },
+    }));
     app.use(morgan("dev"))
+    app.use(apiLimiter)
  }
 
 
 const routes = (app) => {
     app.use("/corporex/v1/auth", authRoutes)
     app.use("/corporex/v1/companies", companyRoutes)
-
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
 
