@@ -161,7 +161,7 @@ export const getAllCompanies = async (req, res) => {
  */
 export const getCompaniesFiltrer = async (req, res) => {
     try {
-        const { desde = 0, limite = 10, filtro, category, trayectory } = req.query;
+        const { desde = 0, limite = 27, filtro, category, trayectory } = req.query;
         const query = {};
         const currentYear = new Date().getFullYear();
 

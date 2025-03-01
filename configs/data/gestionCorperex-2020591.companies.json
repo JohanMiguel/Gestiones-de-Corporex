@@ -1,0 +1,432 @@
+[{
+  "_id": {
+    "$oid": "67bff421a76cc346c10a2b59"
+  },
+  "name": "alphatech",
+  "impactLevel": "High",
+  "fundation": 2010,
+  "category": "Technology",
+  "description": "Empresa líder en soluciones tecnológicas avanzadas.",
+  "createdAt": {
+    "$date": "2025-02-27T05:12:01.894Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:12:01.894Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff430a76cc346c10a2b5d"
+  },
+  "name": "betafoods",
+  "impactLevel": "Medium",
+  "fundation": 2015,
+  "category": "Food",
+  "description": "Cadena de alimentos orgánicos y saludables.",
+  "createdAt": {
+    "$date": "2025-02-27T05:12:16.274Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:12:16.274Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff43ea76cc346c10a2b63"
+  },
+  "name": "cryptobank",
+  "impactLevel": "High",
+  "fundation": 2010,
+  "category": "Finance",
+  "description": "Banco especializado en criptomonedas y blockchain.",
+  "createdAt": {
+    "$date": "2025-02-27T05:12:30.267Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:12:30.267Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff445a76cc346c10a2b67"
+  },
+  "name": "deltaenergy",
+  "impactLevel": "Medium",
+  "fundation": 2018,
+  "category": "Energy",
+  "description": "Empresa de energías renovables con enfoque en sostenibilidad.",
+  "createdAt": {
+    "$date": "2025-02-27T05:12:37.276Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:12:37.276Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff459a76cc346c10a2b6b"
+  },
+  "name": "ecolife",
+  "impactLevel": "Low",
+  "fundation": 2015,
+  "category": "Environment",
+  "description": "Iniciativa ecológica para la conservación del medio ambiente.",
+  "createdAt": {
+    "$date": "2025-02-27T05:12:57.187Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:12:57.187Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff462a76cc346c10a2b6f"
+  },
+  "name": "farmfresh",
+  "impactLevel": "Low",
+  "fundation": 2008,
+  "category": "Food",
+  "description": "Productores de alimentos frescos y orgánicos.",
+  "createdAt": {
+    "$date": "2025-02-27T05:13:06.890Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:13:06.890Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff46ba76cc346c10a2b73"
+  },
+  "name": "greenenergy",
+  "impactLevel": "High",
+  "fundation": 2008,
+  "category": "Energy",
+  "description": "Desarrolladores de energía solar y eólica.",
+  "createdAt": {
+    "$date": "2025-02-27T05:13:15.046Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:13:15.046Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff472a76cc346c10a2b77"
+  },
+  "name": "healthplus",
+  "impactLevel": "Medium",
+  "fundation": 2012,
+  "category": "Health",
+  "description": "Plataforma de telemedicina para consultas en línea.",
+  "createdAt": {
+    "$date": "2025-02-27T05:13:22.061Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:13:22.061Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff490a76cc346c10a2b7b"
+  },
+  "name": "kryptosafe",
+  "impactLevel": "High",
+  "fundation": 2010,
+  "category": "Finance",
+  "description": "Plataforma de seguridad y almacenamiento de criptoactivos.",
+  "createdAt": {
+    "$date": "2025-02-27T05:13:52.111Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:13:52.111Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff494a76cc346c10a2b7f"
+  },
+  "name": "logitrans",
+  "impactLevel": "Medium",
+  "fundation": 2015,
+  "category": "Transport",
+  "description": "Soluciones logísticas para transporte de mercancías.",
+  "createdAt": {
+    "$date": "2025-02-27T05:13:56.759Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:13:56.759Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff49ea76cc346c10a2b83"
+  },
+  "name": "meditech",
+  "impactLevel": "High",
+  "fundation": 2012,
+  "category": "Health",
+  "description": "Tecnología médica de última generación.",
+  "createdAt": {
+    "$date": "2025-02-27T05:14:06.851Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:14:06.851Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff4a5a76cc346c10a2b87"
+  },
+  "name": "naturesense",
+  "impactLevel": "Low",
+  "fundation": 2008,
+  "category": "Environment",
+  "description": "Educación y conservación del medio ambiente.",
+  "createdAt": {
+    "$date": "2025-02-27T05:14:13.259Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:14:13.259Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff4b0a76cc346c10a2b8b"
+  },
+  "name": "omegaconstruct",
+  "impactLevel": "Medium",
+  "fundation": 2018,
+  "category": "Construction",
+  "description": "Desarrollos urbanos sostenibles y ecológicos.",
+  "createdAt": {
+    "$date": "2025-02-27T05:14:24.623Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:14:24.623Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff4c0a76cc346c10a2b8f"
+  },
+  "name": "pixelsoft",
+  "impactLevel": "High",
+  "fundation": 2010,
+  "category": "Technology",
+  "description": "Empresa de software y diseño digital.",
+  "createdAt": {
+    "$date": "2025-02-27T05:14:40.580Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:14:40.580Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff4c8a76cc346c10a2b93"
+  },
+  "name": "quantumai",
+  "impactLevel": "High",
+  "fundation": 2020,
+  "category": "Technology",
+  "description": "Desarrollo de inteligencia artificial cuántica.",
+  "createdAt": {
+    "$date": "2025-02-27T05:14:48.849Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:14:48.849Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff4cfa76cc346c10a2b97"
+  },
+  "name": "rapidcargo",
+  "impactLevel": "Medium",
+  "fundation": 2015,
+  "category": "Transport",
+  "description": "Transporte de carga rápida y eficiente.",
+  "createdAt": {
+    "$date": "2025-02-27T05:14:55.902Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:14:55.902Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff4d7a76cc346c10a2b9b"
+  },
+  "name": "solarbright",
+  "impactLevel": "High",
+  "fundation": 2008,
+  "category": "Energy",
+  "description": "Energía solar para comunidades rurales.",
+  "createdAt": {
+    "$date": "2025-02-27T05:15:03.785Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:15:03.785Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff4e3a76cc346c10a2b9f"
+  },
+  "name": "technova",
+  "impactLevel": "High",
+  "fundation": 2010,
+  "category": "Technology",
+  "description": "Innovaciones en tecnología digital y automatización.",
+  "createdAt": {
+    "$date": "2025-02-27T05:15:15.421Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:15:15.421Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff515a76cc346c10a2ba3"
+  },
+  "name": "urbanhousing",
+  "impactLevel": "Medium",
+  "fundation": 2018,
+  "category": "Construction",
+  "description": "Soluciones habitacionales asequibles y sostenibles.",
+  "createdAt": {
+    "$date": "2025-02-27T05:16:05.208Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:16:05.208Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff51ea76cc346c10a2ba7"
+  },
+  "name": "veganfoods",
+  "impactLevel": "Low",
+  "fundation": 2015,
+  "category": "Food",
+  "description": "Alternativas veganas para una alimentación saludable.",
+  "createdAt": {
+    "$date": "2025-02-27T05:16:14.073Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:16:14.073Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff526a76cc346c10a2bab"
+  },
+  "name": "wildrescue",
+  "impactLevel": "Medium",
+  "fundation": 2005,
+  "category": "Animals",
+  "description": "Rescate y rehabilitación de fauna silvestre.",
+  "createdAt": {
+    "$date": "2025-02-27T05:16:22.872Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:16:22.872Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff52ea76cc346c10a2baf"
+  },
+  "name": "xenoncars",
+  "impactLevel": "High",
+  "fundation": 2018,
+  "category": "Transport",
+  "description": "Fabricación de vehículos eléctricos y autónomos.",
+  "createdAt": {
+    "$date": "2025-02-27T05:16:30.553Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:16:30.553Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff542a76cc346c10a2bb3"
+  },
+  "name": "yieldfinance",
+  "impactLevel": "Medium",
+  "fundation": 2010,
+  "category": "Finance",
+  "description": "Gestión de inversiones y fondos de riesgo.",
+  "createdAt": {
+    "$date": "2025-02-27T05:16:50.194Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:16:50.194Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff5c9a76cc346c10a2bbe"
+  },
+  "name": "zoo",
+  "impactLevel": "Low",
+  "fundation": 2008,
+  "category": "Animals",
+  "description": "Zoológico con diferentes animales del mundo.",
+  "createdAt": {
+    "$date": "2025-02-27T05:19:05.513Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:19:05.513Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bff631a76cc346c10a2bc8"
+  },
+  "name": "zumba",
+  "impactLevel": "Low",
+  "fundation": 2008,
+  "category": "Dance",
+  "description": "Cursos de Baile",
+  "createdAt": {
+    "$date": "2025-02-27T05:20:49.569Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-27T05:20:49.569Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c27473b9d83ef3ec359159"
+  },
+  "name": "innovatetech",
+  "impactLevel": "High",
+  "fundation": 2015,
+  "category": "Technology",
+  "description": "Empresa líder en soluciones tecnológicas avanzadas.",
+  "createdAt": {
+    "$date": "2025-03-01T02:44:03.245Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T02:44:03.245Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c27483b9d83ef3ec35915d"
+  },
+  "name": "Abec",
+  "impactLevel": "Medio",
+  "fundation": 2010,
+  "category": "Literatura",
+  "description": "Empresa enfocada los la ciencia de letras.",
+  "createdAt": {
+    "$date": "2025-03-01T02:44:19.663Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T02:49:46.098Z"
+  }
+}]

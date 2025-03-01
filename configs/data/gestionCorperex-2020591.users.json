@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "67bd3c78838416f7713ff855"
+  },
+  "name": "Admin",
+  "surname": "Corpex",
+  "username": "admin_role",
+  "email": "admin@corporex.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$H2DFOMArXQSwLCJ85Xqjjg$a7sRpoi2klJyEmaN/nVi+IahoKdHEtxahXYbfiIabp4",
+  "phone": "21326554",
+  "role": "ADMIN_ROLE"
+}]
